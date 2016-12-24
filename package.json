@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [ "react", "css", "clock" ],
+  "keywords": [
+    "react",
+    "css",
+    "clock"
+  ],
   "author": "Andre Herculano",
   "license": "MIT",
   "devDependencies": {
@@ -14,6 +18,8 @@
     "babel-loader": "^6.2.10",
     "babel-preset-env": "^1.1.4",
     "babel-preset-react": "^6.16.0",
+    "eslint": "^3.12.2",
+    "eslint-plugin-react": "^6.8.0",
     "webpack": "^1.14.0"
   },
   "dependencies": {
