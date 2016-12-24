@@ -1,11 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-const ItWorks = (props) => (
-  <h1>It works</h1>
-);
+import BaseClock from './components/BaseClock';
 
 ReactDOM.render(
-  <ItWorks />,
+  <BaseClock />,
   document.getElementById("app")
 );
