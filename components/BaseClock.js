@@ -24,10 +24,21 @@ export default class BaseClock extends React.Component {
   }
 
   render() {
+    const formatedClocks = React.Children.map(this.props.children,
+      (child) => React.cloneElement(child, {
+        date: this.state.date
+      })
+    );
+
     return (
-      <div>
-        {this.state.date.toLocaleTimeString()}
-      </div>
+      <div>{formatedClocks}</div>
     );
   }
+}
+
+BaseClock.propTypes = {
+  children: React.PropTypes.oneOfType([
+    React.PropTypes.array,
+    React.PropTypes.element
+  ]),
 }

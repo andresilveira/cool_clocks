@@ -54,13 +54,21 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _BaseClock = __webpack_require__(179);
+	var _BaseClock = __webpack_require__(178);
 
 	var _BaseClock2 = _interopRequireDefault(_BaseClock);
 
+	var _AnalogClock = __webpack_require__(179);
+
+	var _AnalogClock2 = _interopRequireDefault(_AnalogClock);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	_reactDom2.default.render(_react2.default.createElement(_BaseClock2.default, null), document.getElementById("app"));
+	_reactDom2.default.render(_react2.default.createElement(
+	  _BaseClock2.default,
+	  null,
+	  _react2.default.createElement(_AnalogClock2.default, { date: new Date() })
+	), document.getElementById("app"));
 
 /***/ },
 /* 1 */
@@ -21476,8 +21484,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 178 */,
-/* 179 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21536,10 +21543,18 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this3 = this;
+
+	      var formatedClocks = _react2.default.Children.map(this.props.children, function (child) {
+	        return _react2.default.cloneElement(child, {
+	          date: _this3.state.date
+	        });
+	      });
+
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        this.state.date.toLocaleTimeString()
+	        formatedClocks
 	      );
 	    }
 	  }]);
@@ -21548,6 +21563,58 @@
 	}(_react2.default.Component);
 
 	exports.default = BaseClock;
+
+
+	BaseClock.propTypes = {
+	  children: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.array, _react2.default.PropTypes.element])
+	};
+
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = AnalogClock;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function AnalogClock(props) {
+	  var seconds = props.date.getSeconds() * 6;
+	  var minutes = props.date.getMinutes() * 6;
+	  var hours = props.date.getHours() * 30;
+
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "analog" },
+	    _react2.default.createElement("div", { className: "marker oneseven" }),
+	    _react2.default.createElement("div", { className: "marker twoeight" }),
+	    _react2.default.createElement("div", { className: "marker fourten" }),
+	    _react2.default.createElement("div", { className: "marker fiveeleven" }),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "inner_face" },
+	      _react2.default.createElement("div", { className: "hand hour", style: { transform: "rotate(" + hours + "deg)" } }),
+	      _react2.default.createElement("div", { className: "hand minute", style: { transform: "rotate(" + minutes + "deg)" } }),
+	      _react2.default.createElement("div", { className: "hand second", style: { transform: "rotate(" + seconds + "deg)" } })
+	    )
+	  );
+	}
+
+	AnalogClock.propTypes = {
+	  date: _react2.default.PropTypes.shape({
+	    getSeconds: _react2.default.PropTypes.func.isRequired,
+	    getMinutes: _react2.default.PropTypes.func.isRequired,
+	    getHours: _react2.default.PropTypes.func.isRequired
+	  })
+	};
 
 /***/ }
 /******/ ]);
