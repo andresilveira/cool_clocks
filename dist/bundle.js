@@ -68,7 +68,7 @@
 	  _BaseClock2.default,
 	  null,
 	  _react2.default.createElement(_AnalogClock2.default, { date: new Date() })
-	), document.getElementById("app"));
+		), document.getElementById("app"));
 
 /***/ },
 /* 1 */
@@ -21567,7 +21567,7 @@
 
 	BaseClock.propTypes = {
 	  children: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.array, _react2.default.PropTypes.element])
-	};
+		};
 
 /***/ },
 /* 179 */
@@ -21614,7 +21614,8 @@
 	    getMinutes: _react2.default.PropTypes.func.isRequired,
 	    getHours: _react2.default.PropTypes.func.isRequired
 	  })
-	};
+		};
 
 /***/ }
 /******/ ]);
+//# sourceMappingURL=bundle.js.map

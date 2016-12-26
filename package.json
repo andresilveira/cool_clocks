@@ -4,7 +4,9 @@
   "description": "I project to explore React and some CSS magic.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --progress --color",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [
     "react",
@@ -12,6 +14,14 @@
     "clock"
   ],
   "author": "Andre Herculano",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andresilveira/cool_clocks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/andresilveira/cool_clocks/issues"
+  },
+  "homepage": "http://codebikeandmore/cool_clocks",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.21.0",
@@ -20,6 +30,7 @@
     "babel-preset-react": "^6.16.0",
     "eslint": "^3.12.2",
     "eslint-plugin-react": "^6.8.0",
+    "gh-pages": "^0.12.0",
     "webpack": "^1.14.0"
   },
   "dependencies": {
